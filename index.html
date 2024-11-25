@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランダム画像表示</title>
+</head>
+<body>
+    <h1>ランダムな画像を表示</h1>
+    <img id="randomImage" src="" alt="ランダム画像" width="300">
+
+    <script>
+        // OneDriveで共有した画像のダウンロードリンクリスト
+        const images = [
+            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32922&authkey=!AKPrinXtb5YjPzs", // 最初の画像
+            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32923&authkey=!AP1CVvtlbq1Ut28", // 2番目の画像
+            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32924&authkey=!AEhpci0m-6f3OA8"  // 3番目の画像
+        ];
+
+        // ランダムで画像を選択
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const selectedImage = images[randomIndex];
+
+        // <img>タグに画像をセット
+        document.getElementById("randomImage").src = selectedImage;
+    </script>
+</body>
+</html>
