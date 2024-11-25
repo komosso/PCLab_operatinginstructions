@@ -15,28 +15,40 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 0;
+            padding: 20px;
         }
 
         h1 {
             font-size: 2.5rem;
             font-weight: 700;
             color: #ff6f61;
-            margin: 20px 0;
+            margin-bottom: 10px;
             text-align: center;
+        }
+
+        .zoom-controls {
+            margin-bottom: 10px;
         }
 
         iframe {
             border: none;
-            border-radius: 0; /* 角丸を無効化 */
-            width: 100%; /* 横幅を画面いっぱいに設定 */
-            height: 95vh; /* 縦幅も画面の95%に設定 */
-            box-shadow: none; /* 影を削除してシンプルに */
+            border-radius: 10px;
+            width: 100%; /* 画面いっぱいに表示 */
+            height: 90vh;
+            transform-origin: center center; /* 拡大の基点を中央に設定 */
+            transition: transform 0.3s ease; /* ズーム時のアニメーション */
         }
     </style>
 </head>
 <body>
     <h1>ランダム自己紹介</h1>
+
+    <!-- ズーム調整スライダー -->
+    <div class="zoom-controls">
+        <label for="zoomRange">ズーム:</label>
+        <input id="zoomRange" type="range" min="0.5" max="2" step="0.1" value="1">
+    </div>
+
     <iframe id="pdfViewer" src="" title="ランダムPDF"></iframe>
 
     <script>
@@ -54,7 +66,15 @@
         const selectedPDF = pdfFiles[randomIndex];
 
         // iframeにPDFをセット
-        document.getElementById("pdfViewer").src = selectedPDF;
+        const iframe = document.getElementById("pdfViewer");
+        iframe.src = selectedPDF;
+
+        // ズーム機能の実装
+        const zoomRange = document.getElementById("zoomRange");
+        zoomRange.addEventListener("input", (event) => {
+            const zoomLevel = event.target.value;
+            iframe.style.transform = `scale(${zoomLevel})`;
+        });
     </script>
 </body>
 </html>
