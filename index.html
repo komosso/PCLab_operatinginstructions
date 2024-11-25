@@ -4,17 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ランダム画像表示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        img {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <h1>ランダムな画像を表示</h1>
     <img id="randomImage" src="" alt="ランダム画像" width="300">
+    <footer>© 2024 ランダム画像ジェネレーター</footer>
 
     <script>
         // OneDriveで共有した画像のダウンロードリンクリスト
         const images = [
-            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32922&authkey=!AKPrinXtb5YjPzs", // 最初の画像
-            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32923&authkey=!AP1CVvtlbq1Ut28", // 2番目の画像
-            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32924&authkey=!AEhpci0m-6f3OA8"  // 3番目の画像
+            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32922&authkey=!AKPrinXtb5YjPzs",
+            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32923&authkey=!AP1CVvtlbq1Ut28",
+            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32924&authkey=!AEhpci0m-6f3OA8"
         ];
 
         // ランダムで画像を選択
