@@ -3,55 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ランダム画像表示</title>
+    <title>ランダムPDF表示</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            color: #333;
+            height: 100vh;
+            margin: 0;
         }
         h1 {
-            font-size: 2rem;
             margin-bottom: 20px;
         }
-        img {
-            border: 2px solid #ddd;
-            border-radius: 10px;
+        iframe {
+            border: 1px solid #ddd;
+            width: 90%; /* ページ幅に応じて調整 */
+            height: 90vh; /* ビューポートの高さに応じて調整 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #666;
         }
     </style>
 </head>
 <body>
-    <h1>ランダムな画像を表示</h1>
-    <img id="randomImage" src="" alt="ランダム画像" width="300">
-    <footer>© 2024 ランダム画像ジェネレーター</footer>
+    <h1>ランダムなPDFを表示</h1>
+    <iframe id="pdfViewer" src="" title="ランダムPDF"></iframe>
 
     <script>
-        // OneDriveで共有した画像のダウンロードリンクリスト
-        const images = [
-            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32922&authkey=!AKPrinXtb5YjPzs",
-            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32923&authkey=!AP1CVvtlbq1Ut28",
-            "https://onedrive.live.com/download?resid=6863B123A53A16A5!32924&authkey=!AEhpci0m-6f3OA8"
+        // OneDrive埋め込みリンクリスト
+        const pdfFiles = [
+            "https://1drv.ms/b/s!AqUWOqUjsWNogoEeZsgoS3zyiuLzYQ?embed=1&em=2",
+            "https://1drv.ms/b/s!AqUWOqUjsWNogoEfGrHWCTYRJ9-2Lw?embed=1&em=2"
         ];
 
-        // ランダムで画像を選択
-        const randomIndex = Math.floor(Math.random() * images.length);
-        const selectedImage = images[randomIndex];
+        // ランダムでPDFを選択
+        const randomIndex = Math.floor(Math.random() * pdfFiles.length);
+        const selectedPDF = pdfFiles[randomIndex];
 
-        // <img>タグに画像をセット
-        document.getElementById("randomImage").src = selectedImage;
+        // iframeにPDFをセット
+        document.getElementById("pdfViewer").src = selectedPDF;
     </script>
 </body>
 </html>
