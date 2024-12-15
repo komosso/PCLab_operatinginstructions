@@ -3,54 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ランダム自己紹介</title>
+    <title>Lab.取扱説明書</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #fef5e7;
-            color: #333;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            padding: 0;
+            background-color: #fef5e7;
+            height: 100vh;
+            font-family: Arial, sans-serif;
         }
 
         h1 {
-            font-size: 2.5rem;
-            color: #ff6f61;
-            margin: 20px 0;
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #name {
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 20px;
         }
 
         iframe {
             border: none;
-            width: 100%;
-            height: 95vh;
+            width: 80%;
+            height: 70%;
         }
     </style>
 </head>
 <body>
-    <h1>ランダム自己紹介</h1>
-    <iframe id="pdfViewer" src="" title="ランダムPDF"></iframe>
+    <h1>Lab.取扱説明書</h1>
+   <h2> <div id="name">名前を表示中...</div></h2>
+    <iframe id="pdfViewer" src="" title="PDFビューア"></iframe>
 
     <script>
-        // 埋め込みリンクのリスト
+        // リンクと名前のペアリスト
         const pdfFiles = [
-            "https://1drv.ms/b/s!AqUWOqUjsWNogoEg3RfOA3WtCoMiog?embed=1&em=2&zoom=0.5",
-            "https://1drv.ms/b/s!AqUWOqUjsWNogoEh6ALPpHu0WSpvCg?embed=1&em=2&zoom=0.5",
-            "https://1drv.ms/b/s!AqUWOqUjsWNogoEik99dcuykFz95lw?embed=1&em=2&zoom=0.5",
-            "https://1drv.ms/b/s!AqUWOqUjsWNogoEj9Xmg6l1L0D92uQ?embed=1&em=2&zoom=0.5",
-            "https://1drv.ms/b/s!AqUWOqUjsWNogoEdIvpbuiI_CvB4eA?embed=1&em=2&zoom=0.5"
+            { name: "阿部拓弥", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodioU3oHyWslz9ecA?embed=1&em=2" },
+            { name: "伊藤崇洋", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodjATuW64qfrFSfSw?embed=1&em=2" },
+            { name: "安藤爽真", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodkR8LKQ8boYN7xbA?embed=1&em=2" },
+            { name: "古関大雅", url: "https://1drv.ms/b/s!AqUWOqUjsWNogods5WEYPvvUqfg6Hw?embed=1&em=2" },
+            { name: "佐々木楓馬", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodtyVoQVqNLMzueRw?embed=1&em=2" },
+            { name: "佐藤祐成", url: "https://1drv.ms/b/s!AqUWOqUjsWNogoduRsL-XmrBRNrrLQ?embed=1&em=2" },
+            { name: "三上和宇", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodwX9cMfu-HpsOeIQ?embed=1&em=2" },
+            { name: "小森聡太朗", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodxZOFqxB2aHvgzow?embed=1&em=2" },
+            { name: "小林瑞輝", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodyjUey0XhsQWCmGg?embed=1&em=2" },
+            { name: "石井颯", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodzFpAd0cr7gb5zfw?embed=1&em=2" },
+            { name: "川嶋桜輔", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod07teIh9frsFc9BA?embed=1&em=2" },
+            { name: "多喜愛珠", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod1bMPJ7Dc_1y-YTw?embed=1&em=2" },
+            { name: "多田琉晟", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod2owSKucc8UMXkxA?embed=1&em=2" },
+            { name: "調知恵", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod3FuGcYbaX1PsqRw?embed=1&em=2" },
+            { name: "中山晴斗", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod4bp6TZMKiPTKVnQ?embed=1&em=2" },
+            { name: "渡部駿人", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod5AU6tztyp-O78Aw?embed=1&em=2" },
+            { name: "渡辺圭尚", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod6IzhXUx25uKO6ew?embed=1&em=2" },
+            { name: "土井大知", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod7CPCdGjLdKxZ61g?embed=1&em=2" },
+            { name: "東海優菜", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod84d8N_lQuSC0uyg?embed=1&em=2" },
+            { name: "湯田昂汰", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod9NTIf-tehp58HUg?embed=1&em=2" },
+            { name: "那須野栞", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod-CUZRhdZz7GnuKw?embed=1&em=2" },
+            { name: "八重澤理子", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod_1uKXolriqZasdg?embed=1&em=2" },
+            { name: "矢萩陽斗", url: "https://1drv.ms/b/s!AqUWOqUjsWNogogAmnd921mMo_LeKg?embed=1&em=2" },
+            { name: "柳達貴", url: "https://1drv.ms/b/s!AqUWOqUjsWNogogBC6wVuk7MqDTn6g?embed=1&em=2" },
+            { name: "林光太郎", url: "https://1drv.ms/b/s!AqUWOqUjsWNogogCd6jCwhamYD-DmQ?embed=1&em=2" },
+            { name: "樅山友哉", url: "https://1drv.ms/b/s!AqUWOqUjsWNogogDIkg1CbWSGe31xg?embed=1&em=2" },
+            { name: "濵翔真", url: "https://1drv.ms/b/s!AqUWOqUjsWNogogENpw947UACPG0aQ?embed=1&em=2" }
         ];
 
-        // ランダムでPDFを選択
+        // ランダムで1つのリンクを選択
         const randomIndex = Math.floor(Math.random() * pdfFiles.length);
         const selectedPDF = pdfFiles[randomIndex];
 
-        // iframeにPDFをセット
-        document.getElementById("pdfViewer").src = selectedPDF;
+        // 名前とPDFリンクを設定
+        document.getElementById("name").innerText = selectedPDF.name;
+        document.getElementById("pdfViewer").src = selectedPDF.url;
     </script>
 </body>
 </html>
