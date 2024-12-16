@@ -86,11 +86,12 @@
     <button onclick="loadRandomPDF()">別の取扱説明書を見る</button>
 
     <script>
-        // リンクと名前のペアリスト
+        // 全員分のリンクと名前をペアリストに追加
         const pdfFiles = [
             { name: "阿部拓弥", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodioU3oHyWslz9ecA?embed=1&em=2" },
             { name: "伊藤崇洋", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodjATuW64qfrFSfSw?embed=1&em=2" },
             { name: "安藤爽真", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodkR8LKQ8boYN7xbA?embed=1&em=2" },
+            { name: "夏井紗", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodllmmxVpSxzJ0kyQ?embed=1&em=2" },
             { name: "古関大雅", url: "https://1drv.ms/b/s!AqUWOqUjsWNogods5WEYPvvUqfg6Hw?embed=1&em=2" },
             { name: "佐々木楓馬", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodtyVoQVqNLMzueRw?embed=1&em=2" },
             { name: "佐藤祐成", url: "https://1drv.ms/b/s!AqUWOqUjsWNogoduRsL-XmrBRNrrLQ?embed=1&em=2" },
@@ -98,7 +99,23 @@
             { name: "小森聡太朗", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodxZOFqxB2aHvgzow?embed=1&em=2" },
             { name: "小林瑞輝", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodyjUey0XhsQWCmGg?embed=1&em=2" },
             { name: "石井颯", url: "https://1drv.ms/b/s!AqUWOqUjsWNogodzFpAd0cr7gb5zfw?embed=1&em=2" },
-            { name: "川嶋桜輔", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod07teIh9frsFc9BA?embed=1&em=2" }
+            { name: "川嶋桜輔", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod07teIh9frsFc9BA?embed=1&em=2" },
+            { name: "多喜愛珠", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod1bMPJ7Dc_1y-YTw?embed=1&em=2" },
+            { name: "多田琉晟", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod2owSKucc8UMXkxA?embed=1&em=2" },
+            { name: "調知恵", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod3FuGcYbaX1PsqRw?embed=1&em=2" },
+            { name: "中山晴斗", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod4bp6TZMKiPTKVnQ?embed=1&em=2" },
+            { name: "渡部駿人", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod5AU6tztyp-O78Aw?embed=1&em=2" },
+            { name: "渡辺圭尚", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod6IzhXUx25uKO6ew?embed=1&em=2" },
+            { name: "土井大知", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod7CPCdGjLdKxZ61g?embed=1&em=2" },
+            { name: "東海優菜", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod84d8N_lQuSC0uyg?embed=1&em=2" },
+            { name: "湯田昂汰", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod9NTIf-tehp58HUg?embed=1&em=2" },
+            { name: "那須野栞", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod-CUZRhdZz7GnuKw?embed=1&em=2" },
+            { name: "八重澤理子", url: "https://1drv.ms/b/s!AqUWOqUjsWNogod_1uKXolriqZasdg?embed=1&em=2" },
+            { name: "矢萩陽斗", url: "https://1drv.ms/b/s!AqUWOqUjsWNogogAmnd921mMo_LeKg?embed=1&em=2" },
+            { name: "柳達貴", url: "https://1drv.ms/b/s!AqUWOqUjsWNogogBC6wVuk7MqDTn6g?embed=1&em=2" },
+            { name: "林光太郎", url: "https://1drv.ms/b/s!AqUWOqUjsWNogogCd6jCwhamYD-DmQ?embed=1&em=2" },
+            { name: "樅山友哉", url: "https://1drv.ms/b/s!AqUWOqUjsWNogogDIkg1CbWSGe31xg?embed=1&em=2" },
+            { name: "濵翔真", url: "https://1drv.ms/b/s!AqUWOqUjsWNogogENpw947UACPG0aQ?embed=1&em=2" }
         ];
 
         // 初期化
