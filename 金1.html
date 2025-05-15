@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金1企画</title>
+    <style>
+        /* 全体のスタイル */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f9f3df, #fdebd0);
+            color: #444;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        /* タイトルのスタイル */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #444;
+            margin: 20px 0 10px 0;
+            text-align: center;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 名前の表示スタイル */
+        #name {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 15px;
+            padding: 8px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* PDFのフレームコンテナスタイル */
+        .pdf-container {
+            width: 95%;
+            max-width: 500px;
+            height: 60vh;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin-bottom: 50px; /* PDFビューアとボタンの間隔をさらに広げる */
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ボタンのスタイル */
+        button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #f9a825;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        button:hover {
+            background-color: #f57c00;
+        }
+    </style>
+</head>
+<body>
+    <h1>金曜1コマGW企画</h1>
+    <div id="name">名前を表示中...</div>
+    <div class="pdf-container">
+        <iframe id="pdfViewer" src="" title="PDFビューア"></iframe>
+    </div>
+    <button onclick="loadRandomPDF()">別の豆知識を見る</button>
+
+    <script>
+        // 全員分のリンクと名前をペアリストに追加
+        const pdfFiles = [
+            { name: "にったちゃん作", url: "https://1drv.ms/b/s!AqUWOqUjsWNogp0OfU0_yQQXtDf_kw?embed=1&em=2" },
+            { name: "やなぎん作", url: "https://1drv.ms/b/s!AqUWOqUjsWNogp0xs3vRaCfEQnOK5g?embed=1&em=2" },
+            { name: "さや作", url: "https://1drv.ms/b/s!AqUWOqUjsWNogp00hEfA6z-1lLjmyQ?embed=1&em=2" },
+            { name: "わきゃな作", url: "https://1drv.ms/b/s!AqUWOqUjsWNogp01K4ndtQVjrwgEgw?embed=1&em=2" },
+            { name: "さとゆう作", url: "https://1drv.ms/b/s!AqUWOqUjsWNogp0-7vWukFMmta-XAQ?embed=1&em=2" },
+            { name: "みっきー作", url: "https://1drv.ms/b/c/6863b123a53a16a5/IQSlFjqlI7FjIIBo644AAAAAAfNBA8Uw_ybvP4E-d1Zq8ts"},
+
+          
+        ];
+
+        // 初期化
+        function loadRandomPDF() {
+            const randomIndex = Math.floor(Math.random() * pdfFiles.length);
+            const selectedPDF = pdfFiles[randomIndex];
+            document.getElementById("name").innerText = selectedPDF.name;
+            document.getElementById("pdfViewer").src = selectedPDF.url;
+        }
+
+        // ページ読み込み時にランダムなPDFを表示
+        loadRandomPDF();
+    </script>
+</body>
+</html>
